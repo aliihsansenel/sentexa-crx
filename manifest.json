@@ -1,0 +1,47 @@
+{
+    "manifest_version": 3,
+    "name": "Sentexa",
+    "description": "Select example sentences to save as text file.",
+    "version": "1.0.0",
+    "icons": {
+        "128": "icons/icon128.png",
+        "48": "icons/icon48.png",
+        "16": "icons/icon16.png"
+    },
+    "author": "Ali İhsan Şenel",
+    "action": {
+        "default_icon": "icons/icon16.png",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.yourdictionary.com/*"
+            ],
+            "exclude_matches": [
+                "*://*.yourdictionary.com/search/*"
+            ],
+            "css": [
+                "cs/style.css"
+            ],
+            "js": [
+                "cs/content-script.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "cs/template/*"
+            ],
+            "matches": [
+                "*://*.yourdictionary.com/*"
+            ]
+        }
+    ],
+    "host_permissions": [
+        "*://*.yourdictionary.com/*"
+    ],
+    "options_page": "options.html"
+}
